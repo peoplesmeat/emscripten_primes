@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>The HTML5 Herald</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+
+
+
+<h1>Derpy</h1>
+
+<input type="text" value="1100101" id="input"/>
+<button id="click">Click</button>
+
+
+<script src="js/jquery-3.1.0.js"></script>
+<script src="js/factor.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        console.log('here');
+
+
+        $('#click').click(function(){
+            var start = parseInt($('#input').val());
+            for(var i=start; i< start+500; i++) {
+                console.log(i, Module.ccall('factor', 'string', ['number'], [i]));
+            }
+            start = 1100600;
+            console.log(start, Module.ccall('factor', 'string', ['number'], [start]));
+        });
+    });
+</script>
+</body>
+</html>
