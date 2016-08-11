@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>The HTML5 Herald</title>
+    <title>Factors</title>
     <meta name="description" content="The HTML5 Herald">
     <meta name="author" content="SitePoint">
 
@@ -16,14 +16,14 @@
 
 
 
-<h1>Derpy</h1>
+<h1>Factor Number</h1>
 
-<input type="text" value="1100101" id="input"/>
+<input type="text" value="1100102" id="input"/>
 <button id="click">Click</button>
-
+<div id="factors"></div>
 
 <script src="js/jquery-3.1.0.js"></script>
-<script src="js/factor.js"></script>
+<script src="js/dist/factor.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -31,12 +31,14 @@
 
 
         $('#click').click(function(){
-            var start = parseInt($('#input').val());
+            var num = parseInt($('#input').val());
+            var k = Module.ccall('factor', 'string', ['number'], [num]);
+            $('#factors').text(num + ' Factors into ' + k);
+            console.log(k);
+            /*var start = parseInt($('#input').val());
             for(var i=start; i< start+500; i++) {
                 console.log(i, Module.ccall('factor', 'string', ['number'], [i]));
-            }
-            start = 1100600;
-            console.log(start, Module.ccall('factor', 'string', ['number'], [start]));
+            }*/
         });
     });
 </script>
